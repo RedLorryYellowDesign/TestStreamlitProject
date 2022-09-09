@@ -6,6 +6,7 @@ import streamlit as st
 from streamlit_lottie import st_lottie
 from PIL import Image
 import plotly as py
+import numpy as np
 
 # Page config
 st.set_page_config(page_title="Test Streamlit App", page_icon=":smiley:", layout="wide", initial_sidebar_state="expanded")
@@ -29,6 +30,30 @@ def load_lottieurl(url):
 lottie_coding_Pyraminx_Shape_Lottie_Animation = load_lottieurl("https://assets10.lottiefiles.com/packages/lf20_2QAV9ZfHr4.json")
 lottie_coding_Data_Science_Animation = load_lottieurl("https://assets5.lottiefiles.com/packages/lf20_xl3sktpc.json")
 
+
+# test DS Model with fake data and plot results
+def test_model():
+    x = np.linspace(0, 20, 100)
+    fig = plt.figure()
+    plt.plot(x, np.sin(x))
+    plt.title('Test Model', fontweight='bold')
+    plt.xlabel('x', fontweight='bold')
+    plt.ylabel('sin(x)', fontweight='bold')
+    return st.pyplot(fig)
+
+# Plot Closing Price of Query Symbol
+def price_plot(symbol):
+  df = pd.DataFrame(data[symbol].Close)
+  df['Date'] = df.index
+  fig = plt.figure()
+  plt.fill_between(df.Date, df.Close, color='skyblue', alpha=0.3)
+  plt.plot(df.Date, df.Close, color='skyblue', alpha=0.8)
+  plt.xticks(rotation=90)
+  plt.title(symbol, fontweight='bold')
+  plt.xlabel('Date', fontweight='bold')
+  plt.ylabel('Closing Price', fontweight='bold')
+  return st.pyplot(fig)
+
 # Header section
 with st.container():
     st.title("Streamlit App")
@@ -38,24 +63,29 @@ with st.container():
 
 with st.container():
     st.write("---")
-    left_column, right_column = st.columns(2)
+    left_column,center_colum, right_column = st.columns(3)
     with left_column:
         st.write('''
         This is the left column.
         it is 50% of the page but
         im sure we coudl make it bigger
         ''')
-    with right_column:
+    with center_colum:
         st_lottie(lottie_coding_Pyraminx_Shape_Lottie_Animation, height=200, key="coding")
+    with right_column:
+        st.empty()
 
 with st.container():
     st.write("---")
-    st_lottie(lottie_coding_Data_Science_Animation, height=200)
+    st_lottie(lottie_coding_Data_Science_Animation, height=600)
 
 # graphst section -- Plotly
 with st.container():
     st.write("---")
     st.write("This is a plotly graph")
+
+    st.button(label="Hello", key=None, help=None, on_click=None, args=None, kwargs=None, disabled=False)
+
 
 # contact form section from form submit
 # link for info here --> https://formsubmit.co/
