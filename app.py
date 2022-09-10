@@ -83,12 +83,12 @@ fig2 = py.graph_objects.Figure()
 fig2.add_trace(py.graph_objects.Scatter(x=x, y=np.sin(x), mode='lines', name='sin(x)'))
 fig2.add_trace(py.graph_objects.Scatter(x=x, y=np.cos(x), mode='lines', name='cos(x)'))
 fig2.update_layout(title='Plotly Graph', xaxis_title='x', yaxis_title='sin(x)')
-fig2.update_layout(legend=dict(
-    yanchor="top",
-    y=0.99,
-    xanchor="left",
-    x=0.01
-)
+#fig2.update_layout(legend=dict(
+    #yanchor="top",
+    #y=0.99,
+   #xanchor="left",
+    #x=0.01
+#)
 
 # ---| ALL FUNCTIONS |---
 
@@ -197,7 +197,7 @@ with st.container():
     with col1:
         st.write("Built badly by Jordan Harris")
         st.write("Lets hope team energy can do better")
-    with col2
+    with col2:
         st.write("Lets hope team energy can do better")
-    with col3
+    with col3:
         st.write("Lets hope team energy can do better")
