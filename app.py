@@ -99,7 +99,6 @@ with st.container():
     st.subheader("This is a Test web app for LeWagon Team Energy")
     st.write("This is a test app for LeWagon Team Energy to test Streamlit")
     st.write("[Le Wagon Home Page](https://www.lewagon.com)")
-    st
 
 with st.container():
     st.write("---")
