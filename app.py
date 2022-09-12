@@ -90,6 +90,16 @@ fig2.update_layout(title='Plotly Graph', xaxis_title='x', yaxis_title='sin(x)')
     #x=0.01
 #)
 
+# ploting a graph with seaborn
+# sns.set_theme(style="darkgrid")
+# tips = sns.load_dataset("tips")
+
+x1 = np.linspace(0, 20, 100)
+y1 §= np.sin(x1) + np.random.randn(100) * 0.1
+fig3 = sns.relplot(x="total_bill", y="tip", hue="smoker", style="time", data=tips)
+
+
+
 # ---| ALL FUNCTIONS |---
 
 # Header section
